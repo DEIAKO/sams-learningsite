@@ -1,0 +1,130 @@
+# Sam's Learning Site — MERN Stack
+
+A full-stack coding learning platform with tutorial videos, books, references, roadmaps, and blogs.
+
+---
+
+## Overview
+
+We'll build a modern, premium-looking learning site using:
+- **MongoDB** — database for all content
+- **Express + Node.js** — REST API backend
+- **React + Vite** — frontend SPA
+- **JWT Auth** — for admin content management
+
+---
+
+## Open Questions
+
+> [!IMPORTANT]
+> Please answer these before I start building:
+
+1. **Authentication**: Do you want user accounts (login/register for students) or just a public read-only site? Or only an **admin panel** to manage content?
+2. **Video hosting**: Will tutorial videos be **YouTube/Vimeo embeds** (easy) or **self-hosted uploads** (requires file storage)? YouTube embeds are strongly recommended for simplicity.
+3. **Admin panel**: Do you want a separate admin dashboard to add/edit/delete content, or will you manage data directly in MongoDB for now?
+4. **Deployment**: Just local dev for now, or do you want it deployed (e.g., Render, Railway, Netlify)?
+
+---
+
+## Proposed Architecture
+
+### Backend (`/backend`)
+
+```
+backend/
+├── server.js
+├── .env
+├── package.json
+├── config/
+│   └── db.js               # MongoDB connection
+├── models/
+│   ├── Video.js             # Tutorial videos
+│   ├── Book.js              # Books & references
+│   ├── Roadmap.js           # Learning roadmaps
+│   └── Blog.js              # Blog posts
+├── routes/
+│   ├── videoRoutes.js
+│   ├── bookRoutes.js
+│   ├── roadmapRoutes.js
+│   └── blogRoutes.js
+└── middleware/
+    └── errorHandler.js
+```
+
+**API Endpoints:**
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/videos` | List all tutorial videos |
+| GET | `/api/videos/:id` | Get single video |
+| GET | `/api/books` | List books & references |
+| GET | `/api/roadmaps` | List roadmaps |
+| GET | `/api/blogs` | List blog posts |
+| GET | `/api/blogs/:slug` | Get single blog post |
+| POST/PUT/DELETE | All above | Admin CRUD (optional) |
+
+---
+
+### Frontend (`/frontend`)
+
+Built with **Vite + React**, using **React Router v6** for navigation.
+
+```
+frontend/
+├── index.html
+├── vite.config.js
+├── package.json
+└── src/
+    ├── main.jsx
+    ├── App.jsx
+    ├── index.css          # Global design system
+    ├── components/
+    │   ├── Navbar.jsx
+    │   ├── Footer.jsx
+    │   ├── HeroSection.jsx
+    │   ├── ContentCard.jsx
+    │   └── TagBadge.jsx
+    └── pages/
+        ├── Home.jsx        # Landing page with sections preview
+        ├── Videos.jsx      # Tutorial videos grid
+        ├── Books.jsx        # Books & references
+        ├── Roadmap.jsx     # Visual roadmap page
+        ├── Blog.jsx        # Blog listing
+        └── BlogPost.jsx    # Single blog post
+```
+
+**Pages & Features:**
+| Page | Features |
+|------|----------|
+| **Home** | Hero, featured content from each section, stats |
+| **Videos** | Grid of video cards with YouTube embed, tags, filter by topic |
+| **Books** | Book/reference cards with cover image, description, link |
+| **Roadmap** | Visual step-by-step learning path per technology |
+| **Blog** | Listing with author, date, reading time; single post view |
+
+---
+
+## Design System
+
+- **Color palette**: Deep dark background (`#0a0f1e`), vibrant accent (`#6c63ff` purple-blue), neon highlights
+- **Typography**: `Inter` + `Fira Code` (Google Fonts)
+- **Style**: Glassmorphism cards, gradient text headings, smooth hover animations
+- **Navigation**: Sticky top navbar with smooth scroll
+
+---
+
+## Implementation Steps
+
+1. **Backend setup** — Express server, MongoDB connection, models, routes, seed data
+2. **Frontend init** — Vite + React, install React Router, Axios
+3. **Design system** — Global CSS variables, fonts, card components
+4. **Pages** — Build all 5 pages with API integration
+5. **Polish** — Animations, responsive layout, final styling
+
+---
+
+## Verification Plan
+
+- Run backend: `node server.js` → confirm API routes return data
+- Run frontend: `npm run dev` → confirm all pages render correctly
+- Check responsive layout at mobile/tablet/desktop sizes
+- Test video embed rendering
