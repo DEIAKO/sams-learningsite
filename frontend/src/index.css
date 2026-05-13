@@ -2,34 +2,34 @@
 
 /* ─── CSS Variables ─────────────────────────────── */
 :root {
-  --bg-primary:    #fdfdfd;
-  --bg-secondary:  #f8f9fa;
-  --bg-card:       #ffffff;
-  --bg-card-hover: #fcfbf7;
+  --bg-primary:    #050505;
+  --bg-secondary:  #0a0a0c;
+  --bg-card:       #111114;
+  --bg-card-hover: #16161a;
 
-  --accent:        #6c63ff;
-  --accent-light:  #8b85ff;
-  --accent-glow:   rgba(108, 99, 255, 0.1);
+  --accent:        #818cf8;
+  --accent-light:  #a5b4fc;
+  --accent-glow:   rgba(129, 140, 248, 0.12);
 
-  --teal:          #0d9488;
-  --amber:         #d97706;
-  --rose:          #e11d48;
-  --emerald:       #059669;
+  --teal:          #14b8a6;
+  --amber:         #f59e0b;
+  --rose:          #fb7185;
+  --emerald:       #10b981;
 
-  --text-primary:  #0f172a;
-  --text-secondary:#475569;
-  --text-muted:    #94a3b8;
+  --text-primary:  #f8fafc;
+  --text-secondary:#94a3b8;
+  --text-muted:    #64748b;
 
-  --border:        rgba(0, 0, 0, 0.06);
-  --border-hover:  rgba(108, 99, 255, 0.4);
+  --border:        rgba(255, 255, 255, 0.06);
+  --border-hover:  rgba(129, 140, 248, 0.3);
 
   --radius-sm:     8px;
   --radius-md:     12px;
   --radius-lg:     20px;
   --radius-xl:     28px;
 
-  --shadow-card:   0 10px 30px rgba(0, 0, 0, 0.04);
-  --shadow-glow:   0 15px 45px rgba(108, 99, 255, 0.08);
+  --shadow-card:   0 10px 30px rgba(0, 0, 0, 0.4);
+  --shadow-glow:   0 15px 45px rgba(129, 140, 248, 0.08);
 
   --transition:    all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --navbar-height: 72px;
@@ -42,7 +42,7 @@ html { scroll-behavior: smooth; }
 
 body {
   font-family: 'Inter', system-ui, sans-serif;
-  background-color: var(--bg-primary);
+  background-color: transparent;
   color: var(--text-primary);
   line-height: 1.6;
   min-height: 100vh;

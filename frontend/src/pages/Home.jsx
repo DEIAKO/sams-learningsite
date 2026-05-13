@@ -44,9 +44,9 @@ export default function Home() {
           <div className="hero-orb orb-3" />
         </div>
         <div className="container hero-content">
-          <div className="hero-badge animate-fade-in">
+          {/* <div className="hero-badge animate-fade-in">
             <span>🚀</span> Your Developer Learning Hub
-          </div>
+          </div> */}
           <h1 className="hero-title animate-fade-in-up">
             Learn to Code<br />
             <span className="gradient-text">Level Up Your Skills</span>
