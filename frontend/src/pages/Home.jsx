@@ -4,6 +4,7 @@ import { getFeaturedVideos, getFeaturedBooks, getFeaturedBlogs, getRoadmaps } fr
 import { VideoCard, BookCard, BlogCard } from '../components/ContentCard';
 import '../components/Footer.css';
 import './Home.css';
+import samuelProfile from '../assets/samuel_profile.png';
 
 const stats = [
   { value: '50+', label: 'Tutorial Videos', icon: '📹' },
@@ -176,7 +177,7 @@ export default function Home() {
         <div className="container">
           <div className="instructor-card animate-fade-in-up">
             <div className="instructor-image">
-              <img src="/src/assets/samuel_profile.png" alt="Samuel Htamu" />
+              <img src={samuelProfile} alt="Samuel Htamu" />
             </div>
             <div className="instructor-info">
               <span className="badge badge-accent">FOUNDER & INSTRUCTOR</span>

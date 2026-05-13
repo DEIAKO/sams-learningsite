@@ -1,4 +1,6 @@
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import API from '../api';
 import './Footer.css';
 
 const footerLinks = [
@@ -9,6 +11,13 @@ const footerLinks = [
 ];
 
 export default function Footer() {
+  const [isServerLive, setIsServerLive] = useState(false);
+
+  useEffect(() => {
+    API.get('health')
+      .then(() => setIsServerLive(true))
+      .catch(() => setIsServerLive(false));
+  }, []);
   return (
     <footer className="footer">
       <div className="divider" />
@@ -37,6 +46,10 @@ export default function Footer() {
         </div>
       </div>
       <div className="footer-bottom">
+        <div className="server-status">
+          <span className={`status-dot ${isServerLive ? 'online' : 'offline'}`} />
+          {isServerLive ? 'API Server: Online' : 'API Server: Connecting...'}
+        </div>
         <p>© {new Date().getFullYear()} Sam.learn — Built with ❤️ using MERN Stack</p>
       </div>
     </footer>
