@@ -49,11 +49,11 @@ export default function Home() {
             <span>🚀</span> Your Developer Learning Hub
           </div> */}
           <h1 className="hero-title animate-fade-in-up">
-            Learn to Code<br />
-            <span className="gradient-text">Level Up Your Skills</span>
+            Learn to Code,<br/> follow the roadmap<br />
+            <span className="gradient-text">Your success is our priority.</span>
           </h1>
           <p className="hero-subtitle animate-fade-in-up">
-            Tutorials, books, roadmaps, and blogs — everything you need to become a professional developer, all in one place.
+            + web and software developer တစ်ယောက်ဖြစ်ဖို့ လိုအပ်တဲ့ အရာတွေ အကုန်လုံး ဒီမှာစုစည်းထားပါတယ် အခုဘဲ အခမဲ့ လေ့လာနိုင်ပါပြီ...
           </p>
           <div className="hero-cta animate-fade-in-up">
             <Link to="/videos" className="btn btn-primary">▶ Start Learning</Link>
