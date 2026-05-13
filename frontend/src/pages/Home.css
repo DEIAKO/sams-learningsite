@@ -276,6 +276,100 @@
   gap: 8px;
 }
 
+/* ── Responsive Adjustments ───────────────────── */
+
+@media (max-width: 1024px) {
+  .hero-title { font-size: 3.5rem; }
+  .instructor-card { gap: 32px; padding: 40px; }
+}
+
+@media (max-width: 768px) {
+  .hero { 
+    min-height: auto; 
+    align-items: flex-start; /* Fix: Start from top to avoid overlapping fixed navbar */
+    padding-top: 150px;
+  }
+  
+  .hero-content { 
+    padding: 100px 20px 60px; /* Increase top padding to clear fixed navbar */
+  }
+
+  .hero-title { 
+    font-size: 2.8rem; 
+    margin-bottom: 20px;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+    margin-bottom: 32px;
+  }
+
+  .hero-stats {
+    gap: 24px;
+    margin-top: 20px;
+  }
+
+  .stat-item {
+    min-width: 120px;
+  }
+
+  .topics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .roadmap-preview-card {
+    padding: 16px 20px;
+    gap: 16px;
+  }
+
+  .rm-icon { font-size: 1.5rem; }
+  .roadmap-preview-card h3 { font-size: 0.95rem; }
+}
+
+@media (max-width: 480px) {
+  .hero-title { font-size: 2.2rem; }
+  
+  .hero-cta {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .hero-cta .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .topics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .stat-item {
+    min-width: 0;
+  }
+
+  .instructor-image {
+    width: 160px;
+  }
+
+  .instructor-info h2 {
+    font-size: 1.8rem;
+  }
+
+  .cta-banner {
+    padding: 60px 0;
+  }
+
+  .cta-content h2 {
+    font-size: 1.5rem;
+  }
+}
+
 @media (max-width: 850px) {
   .instructor-card {
     grid-template-columns: 1fr;
