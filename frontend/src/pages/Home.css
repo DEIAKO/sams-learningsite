@@ -307,6 +307,7 @@
   .hero-stats {
     gap: 24px;
     margin-top: 20px;
+    margin-bottom: 150px;
   }
 
   .stat-item {
