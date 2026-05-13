@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const API = axios.create({
-  baseURL: '/api',
+  baseURL: import.meta.env.VITE_API_BASE_URL || '/api',
 });
 
 // Mock Data for Fallback
@@ -56,22 +56,22 @@ const withFallback = async (apiCall, fallbackData) => {
 };
 
 // Videos
-export const getVideos = (params) => withFallback(() => API.get('/videos', { params }), mockVideos);
-export const getFeaturedVideos = () => withFallback(() => API.get('/videos/featured'), mockVideos);
-export const getVideo = (id) => withFallback(() => API.get(`/videos/${id}`), mockVideos[0]);
+export const getVideos = (params) => withFallback(() => API.get('videos', { params }), mockVideos);
+export const getFeaturedVideos = () => withFallback(() => API.get('videos/featured'), mockVideos);
+export const getVideo = (id) => withFallback(() => API.get(`videos/${id}`), mockVideos[0]);
 
 // Books
-export const getBooks = (params) => withFallback(() => API.get('/books', { params }), mockBooks);
-export const getFeaturedBooks = () => withFallback(() => API.get('/books/featured'), mockBooks);
-export const getBook = (id) => withFallback(() => API.get(`/books/${id}`), mockBooks[0]);
+export const getBooks = (params) => withFallback(() => API.get('books', { params }), mockBooks);
+export const getFeaturedBooks = () => withFallback(() => API.get('books/featured'), mockBooks);
+export const getBook = (id) => withFallback(() => API.get(`books/${id}`), mockBooks[0]);
 
 // Roadmaps
-export const getRoadmaps = (params) => withFallback(() => API.get('/roadmaps', { params }), mockRoadmaps);
-export const getRoadmap = (id) => withFallback(() => API.get(`/roadmaps/${id}`), mockRoadmaps[0]);
+export const getRoadmaps = (params) => withFallback(() => API.get('roadmaps', { params }), mockRoadmaps);
+export const getRoadmap = (id) => withFallback(() => API.get(`roadmaps/${id}`), mockRoadmaps[0]);
 
 // Blogs
-export const getBlogs = (params) => withFallback(() => API.get('/blogs', { params }), mockBlogs);
-export const getFeaturedBlogs = () => withFallback(() => API.get('/blogs/featured'), mockBlogs);
-export const getBlog = (slug) => withFallback(() => API.get(`/blogs/${slug}`), mockBlogs[0]);
+export const getBlogs = (params) => withFallback(() => API.get('blogs', { params }), mockBlogs);
+export const getFeaturedBlogs = () => withFallback(() => API.get('blogs/featured'), mockBlogs);
+export const getBlog = (slug) => withFallback(() => API.get(`blogs/${slug}`), mockBlogs[0]);
 
 export default API;
