@@ -361,6 +361,40 @@ Good schema design is the foundation of a fast MongoDB application.
     featured: false,
     published: true,
   },
+  {
+    title: 'Web Rendering ဆိုတာဘာလဲ? SSR, CSR နဲ့ SPA အကြောင်း သိကောင်းစရာ',
+    slug: 'understanding-ssr-csr-spa-burmese',
+    excerpt: 'Modern Web Development မှာ အသုံးများတဲ့ Rendering types တွေဖြစ်တဲ့ SSR, CSR နဲ့ SPA တို့ရဲ့ ကွာခြားချက်တွေကို မြန်မာလို လွယ်လွယ်ကူကူ ရှင်းပြပေးထားပါတယ်။',
+    content: `
+# Web Rendering ဆိုတာဘာလဲ? SSR, CSR နဲ့ SPA အကြောင်း သိကောင်းစရာ
+
+Modern Web Apps တွေ တည်ဆောက်တဲ့အခါ Web Rendering types တွေကို သိထားဖို့ အင်မတန် အရေးကြီးပါတယ်။ အဓိက အသုံးများတဲ့ အမျိုးအစား (၃) ခုအကြောင်းကို ရှင်းပြပေးပါမယ်။
+
+## 1. CSR (Client-Side Rendering)
+CSR ကတော့ အခုခေတ် React, Vue တို့မှာ အသုံးအများဆုံးပါ။
+- **ဘယ်လိုအလုပ်လုပ်သလဲ:** Browser ကနေ Server ဆီက HTML အလွတ်တစ်ခုနဲ့ JavaScript file တွေကို အရင်ယူပါတယ်။ ပြီးမှ Browser ထဲမှာတင် JavaScript ကနေ HTML content တွေကို ဆွဲထုတ် (Render) တာပါ။
+- **အားသာချက်:** Page တစ်ခုနဲ့တစ်ခု ကူးတဲ့အခါ အရမ်းမြန်ပါတယ်။ Server load သက်သာပါတယ်။
+- **အားနည်းချက်:** ပထမဆုံးအကြိမ် Load လုပ်တဲ့အခါ ကြာတတ်ပါတယ်။ SEO အတွက် အားနည်းချက်ရှိပါတယ်။
+
+## 2. SSR (Server-Side Rendering)
+- **ဘယ်လိုအလုပ်လုပ်သလဲ:** User က Request လုပ်လိုက်တိုင်း Server ကနေ HTML တစ်ခုလုံးကို အပြီးအစီး Render လုပ်ပြီး Browser ဆီ ပို့ပေးတာပါ။
+- **အားသာချက်:** SEO အတွက် အရမ်းကောင်းပါတယ်။ ပထမဆုံး Load လုပ်တဲ့အချိန်မှာ Content တွေကို ချက်ချင်း မြင်ရပါတယ်။
+- **အားနည်းချက်:** Server load များပါတယ်။ Page တစ်ခုချင်းစီအတွက် Server က အလုပ်လုပ်ပေးရပါတယ်။
+
+## 3. SPA (Single Page Application)
+SPA ဆိုတာကတော့ Architecture တစ်ခုပါ။
+- **ဘယ်လိုအလုပ်လုပ်သလဲ:** Website တစ်ခုလုံးမှာ HTML file တစ်ခုတည်းပဲ ရှိတာပါ။ User က တခြား Page တွေကို သွားတဲ့အခါ Browser က အသစ်ပြန်မတောင်းတော့ဘဲ JavaScript ကနေ လိုအပ်တဲ့ data ကိုပဲယူပြီး Content ကို ပြောင်းလဲပေးတာပါ။
+- **ဥပမာ:** Facebook, Gmail တို့ဟာ SPA တွေပါ။
+
+အနှစ်ချုပ်ရရင်တော့ သင့်ရဲ့ Project က SEO ကို ဦးစားပေးတယ်ဆိုရင် SSR ကို သုံးသင့်ပြီး၊ User Experience နဲ့ မြန်ဆန်မှုကို ဦးစားပေးတယ်ဆိုရင်တော့ CSR/SPA ကို သုံးသင့်ပါတယ်။
+    `,
+    author: 'Sam',
+    topic: 'Web Development',
+    tags: ['SSR', 'CSR', 'SPA', 'Web Dev', 'Burmese'],
+    readTime: '5 min read',
+    featured: true,
+    published: true,
+  },
 ];
 
 const seedDB = async () => {

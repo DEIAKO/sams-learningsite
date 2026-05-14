@@ -128,3 +128,27 @@ frontend/
 - Run frontend: `npm run dev` → confirm all pages render correctly
 - Check responsive layout at mobile/tablet/desktop sizes
 - Test video embed rendering
+
+Based on the project structure and configuration files, here is the tech stack used in this project:
+
+Frontend
+Framework: React 19 (Library for building user interfaces)
+Build Tool: Vite 8 (Fast development server and bundler)
+Language: TypeScript (Strict syntactical superset of JavaScript)
+Routing: React Router DOM 7 (Declarative routing for React)
+HTTP Client: Axios (Promise-based HTTP client for the browser and node.js)
+Styling: Vanilla CSS (Modern CSS with focus on glassmorphism and responsiveness)
+Backend
+Runtime Environment: Node.js
+Web Framework: Express 5 (Fast, unopinionated, minimalist web framework)
+Database: MongoDB Atlas (Cloud-hosted NoSQL database)
+ODM (Object Data Modeling): Mongoose 9 (Elegant mongodb object modeling for node.js)
+Utilities:
+dotenv: For managing environment variables.
+cors: For enabling Cross-Origin Resource Sharing.
+nodemon: For automatically restarting the server during development.
+Architecture
+The project follows the MERN (MongoDB, Express, React, Node) architecture, split into two main directories:
+
+/frontend: Contains the client-side React application.
+/backend: Contains the API server and database models.
