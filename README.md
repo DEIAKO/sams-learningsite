@@ -1,7 +1,7 @@
 # Sam's Learning Site 🚀
 
 A modern, full-stack MERN learning platform designed to help developers level up their skills through curated roadmaps, videos, books, and blog posts.
-
+live at : https://sams-learningsite.vercel.app/
 ## ✨ Features
 
 - **Premium UI/UX**: Textured motion background with animated blobs and glassmorphism.
