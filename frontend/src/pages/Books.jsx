@@ -3,7 +3,7 @@ import { getBooks } from '../api';
 import { BookCard } from '../components/ContentCard';
 import './Page.css';
 
-const topics = ['All', 'JavaScript', 'React', 'Node.js', 'CSS', 'Web Development', 'MongoDB'];
+const topics = ['All', 'JavaScript', 'React', 'Node.js', 'CSS', 'Web Development', 'MongoDB', 'Java', 'DSA', 'Architecture', 'DevOps', 'SEO'];
 const types   = ['All', 'Book', 'Reference', 'Documentation', 'Cheatsheet'];
 
 export default function Books() {
