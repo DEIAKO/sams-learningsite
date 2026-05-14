@@ -8,6 +8,7 @@ import Books from './pages/Books';
 import Roadmap from './pages/Roadmap';
 import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
+import BuyMeCoffee from './components/BuyMeCoffee';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         </Routes>
       </main>
       <Footer />
+      <BuyMeCoffee />
     </BrowserRouter>
   );
 }
