@@ -6,8 +6,8 @@ const BuyMeCoffee = () => {
 
   const paymentInfo = [
     { label: 'KPay', value: '09 777 888 999', name: 'Sam' },
-    { label: 'WavePay', value: '09 777 888 999', name: 'Sam' },
-    { label: 'KBZ Bank', value: '1234 5678 9012 3456', name: 'Sam (Savings)' }
+    { label: 'Wave Pay', value: '09 777 888 999', name: 'Sam' },
+    { label: 'AYA Pay', value: '09400036255', name: 'SAMUEL' }
   ];
 
   return (

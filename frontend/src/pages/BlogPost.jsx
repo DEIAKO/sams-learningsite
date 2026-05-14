@@ -51,12 +51,27 @@ export default function BlogPost() {
         </div>
         <div className="bp-content">
           {blog.content.split('\n').map((line, i) => {
-            if (line.startsWith('# '))  return <h1 key={i}>{line.slice(2)}</h1>;
-            if (line.startsWith('## ')) return <h2 key={i}>{line.slice(3)}</h2>;
-            if (line.startsWith('### ')) return <h3 key={i}>{line.slice(4)}</h3>;
-            if (line.startsWith('```')) return <div key={i} className="code-block-marker" />;
-            if (line.startsWith('- '))  return <li key={i}>{line.slice(2)}</li>;
-            if (line.trim() === '')     return <br key={i} />;
+            const trimmed = line.trim();
+            if (trimmed.startsWith('# '))    return <h1 key={i}>{line.slice(2)}</h1>;
+            if (trimmed.startsWith('## '))   return <h2 key={i}>{line.slice(3)}</h2>;
+            if (trimmed.startsWith('### '))  return <h3 key={i}>{line.slice(4)}</h3>;
+            if (trimmed.startsWith('---'))   return <hr key={i} className="bp-hr" />;
+            if (trimmed.startsWith('- '))    return <li key={i}>{line.slice(2)}</li>;
+            if (trimmed.startsWith('**') && trimmed.endsWith('**')) return <p key={i}><strong>{trimmed.slice(2, -2)}</strong></p>;
+            if (trimmed === '')              return <br key={i} />;
+            
+            // Simple check for table lines (starts with |)
+            if (trimmed.startsWith('|')) {
+              const cells = trimmed.split('|').filter(c => c.trim() !== '');
+              if (cells.length > 0) {
+                return (
+                  <div key={i} className="bp-table-row">
+                    {cells.map((c, j) => <span key={j} className="bp-table-cell">{c.trim()}</span>)}
+                  </div>
+                );
+              }
+            }
+
             return <p key={i}>{line}</p>;
           })}
         </div>
