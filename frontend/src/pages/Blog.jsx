@@ -3,7 +3,7 @@ import { getBlogs } from '../api';
 import { BlogCard } from '../components/ContentCard';
 import './Page.css';
 
-const topics = ['All', 'JavaScript', 'React', 'Node.js', 'MongoDB', 'CSS', 'TypeScript', 'Java', 'DSA', 'Architecture', 'DevOps', 'SEO'];
+const topics = ['All', 'JavaScript', 'Next Js', 'Java', 'React Native', 'others'];
 
 export default function Blog() {
   const [blogs, setBlogs]     = useState([]);

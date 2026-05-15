@@ -35,6 +35,40 @@
   box-shadow: 0 0 20px rgba(108,99,255,0.15);
 }
 
+.rm-sub-selector {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 32px;
+  padding: 8px;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+}
+
+.rm-sub-btn {
+  padding: 8px 20px;
+  border-radius: var(--radius-md);
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.rm-sub-btn:hover {
+  color: var(--text-primary);
+}
+
+.rm-sub-btn.active {
+  background: var(--bg-card);
+  color: var(--accent-light);
+  border-color: var(--border);
+  box-shadow: var(--shadow-sm);
+}
+
 /* Detail Header */
 .rm-detail-header {
   display: flex;

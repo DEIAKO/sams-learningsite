@@ -32,18 +32,36 @@ export default function Roadmap() {
       <div className="container section">
         {/* Roadmap Selector */}
         <div className="roadmap-selector">
-          {roadmaps.map(r => (
-            <button
-              key={r._id}
-              className={`rm-select-btn ${selected?._id === r._id ? 'active' : ''}`}
-              onClick={() => setSelected(r)}
-              style={{ '--rm-color': r.color }}
-            >
-              <span>{r.icon}</span>
-              <span>{r.topic}</span>
-            </button>
-          ))}
+          {Array.from(new Set(roadmaps.map(r => r.topic))).map(topic => {
+            const firstRmOfTopic = roadmaps.find(r => r.topic === topic);
+            return (
+              <button
+                key={topic}
+                className={`rm-select-btn ${selected?.topic === topic ? 'active' : ''}`}
+                onClick={() => setSelected(firstRmOfTopic)}
+                style={{ '--rm-color': firstRmOfTopic.color }}
+              >
+                <span>{firstRmOfTopic.icon}</span>
+                <span>{topic}</span>
+              </button>
+            );
+          })}
         </div>
+
+        {/* If multiple roadmaps for selected topic, show sub-selector */}
+        {selected && roadmaps.filter(r => r.topic === selected.topic).length > 1 && (
+          <div className="rm-sub-selector">
+            {roadmaps.filter(r => r.topic === selected.topic).map(r => (
+              <button
+                key={r._id}
+                className={`rm-sub-btn ${selected._id === r._id ? 'active' : ''}`}
+                onClick={() => setSelected(r)}
+              >
+                {r.title}
+              </button>
+            ))}
+          </div>
+        )}
 
         {selected && (
           <div className="roadmap-detail animate-fade-in">

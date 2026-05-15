@@ -116,17 +116,21 @@
 .topics-section { background: var(--bg-secondary); }
 
 .topics-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  gap: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
 }
 
 .topic-card {
+  flex: 0 1 auto;
+  min-width: 180px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  gap: 10px;
-  padding: 24px 16px;
+  justify-content: center;
+  gap: 12px;
+  padding: 16px 24px;
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
@@ -141,8 +145,8 @@
   box-shadow: 0 12px 32px rgba(0,0,0,0.3);
 }
 
-.topic-icon { font-size: 2.2rem; }
-.topic-name { font-size: 0.875rem; font-weight: 600; color: var(--text-secondary); }
+.topic-icon { font-size: 1.5rem; }
+.topic-name { font-size: 0.875rem; font-weight: 600; color: var(--text-secondary); white-space: nowrap; }
 .topic-card:hover .topic-name { color: var(--text-primary); }
 
 /* ── Alt Section ───────────────────────────────── */
@@ -315,7 +319,11 @@
   }
 
   .topics-grid {
-    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  .topic-card {
+    flex: 1 1 calc(50% - 16px);
+    max-width: none;
   }
 
   .roadmap-preview-card {
@@ -341,7 +349,10 @@
   }
 
   .topics-grid {
-    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .topic-card {
+    flex: 1 1 100%;
   }
 
   .hero-stats {

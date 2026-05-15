@@ -15,11 +15,11 @@ const stats = [
 
 const topics = [
   { name: 'JavaScript', icon: '🟨', color: '#f7df1e' },
-  { name: 'React', icon: '⚛️', color: '#61dafb' },
-  { name: 'Node.js', icon: '🟢', color: '#68a063' },
-  { name: 'MongoDB', icon: '🍃', color: '#4db33d' },
-  { name: 'CSS', icon: '🎨', color: '#264de4' },
-  { name: 'TypeScript', icon: '🔷', color: '#3178c6' },
+  { name: 'React js', icon: '⚛️', color: '#61dafb' },
+  { name: 'Next Js', icon: '⚫', color: '#000000' },
+  { name: 'Java', icon: '☕', color: '#f8981d' },
+  { name: 'React Native', icon: '📱', color: '#61dafb' },
+  { name: 'others', icon: '📁', color: '#808080' },
 ];
 
 export default function Home() {
