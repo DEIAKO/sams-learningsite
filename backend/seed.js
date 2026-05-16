@@ -716,6 +716,245 @@ const roadmaps = [
 `,
     steps: [],
   },
+  {
+    title: 'PHP and Laravel Full-Stack Learning Roadmap (2026)',
+    description: 'This comprehensive roadmap is designed to guide you from the fundamentals of web development to becoming an advanced full-stack developer using PHP and the Laravel ecosystem.',
+    topic: 'PHP',
+    icon: '🐘',
+    color: '#777bb4',
+    estimatedTime: '10-12 months',
+    featured: true,
+    htmlContent: `
+<style>
+  .php-wrap { padding: 1rem 0; font-family: 'Inter', sans-serif; }
+  .phase { border: 0.5px solid var(--border); border-radius: var(--radius-lg); margin-bottom: 1.5rem; overflow: hidden; }
+  .phase-header { padding: 14px 20px; display: flex; align-items: center; gap: 12px; cursor: pointer; user-select: none; }
+  .phase-header:hover { opacity: 0.85; }
+  .phase-badge { font-size: 11px; font-weight: 500; padding: 2px 10px; border-radius: 20px; white-space: nowrap; }
+  .phase-title { font-size: 15px; font-weight: 500; color: var(--text-primary); flex: 1; }
+  .phase-meta { font-size: 12px; color: var(--text-secondary); }
+  .phase-body { border-top: 0.5px solid var(--border); padding: 18px 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .skill-card { border: 0.5px solid var(--border); border-radius: var(--radius-md); padding: 12px 14px; cursor: pointer; transition: border-color 0.15s; background: var(--bg-card); }
+  .skill-card:hover { border-color: var(--accent); }
+  .skill-title { font-size: 13px; font-weight: 500; color: var(--text-primary); margin-bottom: 4px; }
+  .skill-items { font-size: 12px; color: var(--text-secondary); line-height: 1.7; }
+  .skill-items span { display: inline-block; background: var(--bg-secondary); border-radius: 4px; padding: 1px 7px; margin: 1px 2px 1px 0; font-size: 11px; }
+  .chevron { transition: transform 0.2s; color: var(--text-secondary); font-size: 14px; }
+  .phase.collapsed .phase-body { display: none; }
+  .phase.collapsed .chevron { transform: rotate(-90deg); }
+  .tip { font-size: 12px; color: var(--text-secondary); padding: 10px 20px 14px; border-top: 0.5px solid var(--border); }
+  /* Phase colors - PHP themed (Purple) */
+  .p1 .phase-header { background: #F0F0FF; } .dark .p1 .phase-header { background: #777bb422; }
+  .p1 .phase-badge { background: #E0E0FF; color: #777bb4; }
+  .p2 .phase-header { background: #F5F0FF; } .dark .p2 .phase-header { background: #8892be22; }
+  .p2 .phase-badge { background: #EBE0FF; color: #8892be; }
+  .p3 .phase-header { background: #F0F5FF; } .dark .p3 .phase-header { background: #4F5D9522; }
+  .p3 .phase-badge { background: #E0EBFF; color: #4F5D95; }
+  @media (max-width: 500px) { .phase-body { grid-template-columns: 1fr; } }
+</style>
+<div class="php-wrap">
+  <!-- Phase 1 -->
+  <div class="phase p1" id="php1">
+    <div class="phase-header" onclick="window.togglePhase('php1')">
+      <span class="phase-badge">Phase 1</span>
+      <span class="phase-title">The Foundation (Prerequisites)</span>
+      <span class="phase-meta">1 Month</span>
+      <i class="ti ti-chevron-down chevron" aria-hidden="true"></i>
+    </div>
+    <div class="phase-body">
+      <div class="skill-card" onclick="window.sendPrompt('Explain internet fundamentals: HTTP/HTTPS, DNS, and browser rendering')">
+        <div class="skill-title">Internet Fundamentals</div>
+        <div class="skill-items">
+          <span>HTTP/HTTPS</span><span>DNS</span><span>Browsers</span><span>Request/Response</span>
+        </div>
+      </div>
+      <div class="skill-card" onclick="window.sendPrompt('What are the core frontend skills needed for PHP developers?')">
+        <div class="skill-title">Basic Frontend</div>
+        <div class="skill-items">
+          <span>HTML5 (Semantic)</span><span>CSS3 (Flexbox/Grid)</span><span>JS (ES6+)</span><span>DOM manipulation</span>
+        </div>
+      </div>
+      <div class="skill-card" onclick="window.sendPrompt('Basic Git commands for PHP developers')">
+        <div class="skill-title">Version Control</div>
+        <div class="skill-items">
+          <span>Git basics</span><span>Branching</span><span>Merging</span><span>GitHub/GitLab</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Phase 2 -->
+  <div class="phase p2" id="php2">
+    <div class="phase-header" onclick="window.togglePhase('php2')">
+      <span class="phase-badge">Phase 2</span>
+      <span class="phase-title">PHP Language Mastery</span>
+      <span class="phase-meta">2 Months</span>
+      <i class="ti ti-chevron-down chevron" aria-hidden="true"></i>
+    </div>
+    <div class="phase-body">
+      <div class="skill-card" onclick="window.sendPrompt('Explain modern PHP 8.x features like Enums and Match expressions')">
+        <div class="skill-title">Modern PHP (8.x+)</div>
+        <div class="skill-items">
+          <span>Enums</span><span>Match expressions</span><span>Readonly props</span><span>Nullsafe operator</span>
+        </div>
+      </div>
+      <div class="skill-card" onclick="window.sendPrompt('How does OOP work in PHP?')">
+        <div class="skill-title">OOP in PHP</div>
+        <div class="skill-items">
+          <span>Classes & Objects</span><span>Inheritance</span><span>Interfaces</span><span>Traits</span><span>Namespaces</span>
+        </div>
+      </div>
+      <div class="skill-card" onclick="window.sendPrompt('How to use Composer for PHP package management?')">
+        <div class="skill-title">Package Management</div>
+        <div class="skill-items">
+          <span>Composer</span><span>packagist.org</span><span>autoloading</span><span>vendor directory</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Phase 3 -->
+  <div class="phase p3" id="php3">
+    <div class="phase-header" onclick="window.togglePhase('php3')">
+      <span class="phase-badge">Phase 3</span>
+      <span class="phase-title">Database Fundamentals</span>
+      <span class="phase-meta">1 Month</span>
+      <i class="ti ti-chevron-down chevron" aria-hidden="true"></i>
+    </div>
+    <div class="phase-body">
+      <div class="skill-card" onclick="window.sendPrompt('Explain SQL basics for PHP developers: CRUD, Joins, Indexing')">
+        <div class="skill-title">SQL Basics</div>
+        <div class="skill-items">
+          <span>MySQL/PostgreSQL</span><span>CRUD</span><span>JOINS</span><span>Indexing</span>
+        </div>
+      </div>
+      <div class="skill-card" onclick="window.sendPrompt('How to design a relational database for a web app?')">
+        <div class="skill-title">Database Design</div>
+        <div class="skill-items">
+          <span>Normalization</span><span>Relationships</span><span>One-to-Many</span><span>Many-to-Many</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Phase 4 -->
+  <div class="phase p1" id="php4">
+    <div class="phase-header" onclick="window.togglePhase('php4')">
+      <span class="phase-badge">Phase 4</span>
+      <span class="phase-title">Laravel Framework (Backend)</span>
+      <span class="phase-meta">3 Months</span>
+      <i class="ti ti-chevron-down chevron" aria-hidden="true"></i>
+    </div>
+    <div class="phase-body">
+      <div class="skill-card" onclick="window.sendPrompt('Explain Laravel MVC architecture and Routing')">
+        <div class="skill-title">Architecture & Routing</div>
+        <div class="skill-items">
+          <span>MVC</span><span>Controllers</span><span>Middleware</span><span>Route groups</span>
+        </div>
+      </div>
+      <div class="skill-card" onclick="window.sendPrompt('How to use Laravel Eloquent ORM?')">
+        <div class="skill-title">Eloquent ORM</div>
+        <div class="skill-items">
+          <span>Models</span><span>Relationships</span><span>Query Builder</span><span>Collections</span>
+        </div>
+      </div>
+      <div class="skill-card" onclick="window.sendPrompt('Laravel Authentication and Authorization guide')">
+        <div class="skill-title">Auth & Security</div>
+        <div class="skill-items">
+          <span>Breeze/Jetstream</span><span>Policies</span><span>Gates</span><span>Sanctum (APIs)</span>
+        </div>
+      </div>
+      <div class="skill-card" onclick="window.sendPrompt('How to handle database migrations and seeders in Laravel?')">
+        <div class="skill-title">Migrations & Seeders</div>
+        <div class="skill-items">
+          <span>Schema Builder</span><span>Rollbacks</span><span>Factories</span><span>Seed data</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Phase 5 -->
+  <div class="phase p2" id="php5">
+    <div class="phase-header" onclick="window.togglePhase('php5')">
+      <span class="phase-badge">Phase 5</span>
+      <span class="phase-title">Full-Stack Integration (The Ecosystem)</span>
+      <span class="phase-meta">2 Months</span>
+      <i class="ti ti-chevron-down chevron" aria-hidden="true"></i>
+    </div>
+    <div class="phase-body" style="grid-template-columns: 1fr;">
+      <div class="skill-card" onclick="window.sendPrompt('Explain the TALL stack (Tailwind, Alpine, Laravel, Livewire)')">
+        <div class="skill-title">Path A: The TALL Stack</div>
+        <div class="skill-items">
+          <span>Tailwind CSS</span><span>Alpine.js</span><span>Laravel</span><span>Livewire 3</span>
+        </div>
+      </div>
+      <div class="skill-card" onclick="window.sendPrompt('Explain the VILT stack (Vue, Inertia, Laravel, Tailwind)')">
+        <div class="skill-title">Path B: The VILT Stack</div>
+        <div class="skill-items">
+          <span>Vue.js / React</span><span>Inertia.js</span><span>Laravel</span><span>Tailwind CSS</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Phase 6 -->
+  <div class="phase p3" id="php6">
+    <div class="phase-header" onclick="window.togglePhase('php6')">
+      <span class="phase-badge">Phase 6</span>
+      <span class="phase-title">Advanced Topics & Best Practices</span>
+      <span class="phase-meta">2 Months</span>
+      <i class="ti ti-chevron-down chevron" aria-hidden="true"></i>
+    </div>
+    <div class="phase-body">
+      <div class="skill-card" onclick="window.sendPrompt('How to write tests in Laravel using Pest or PHPUnit?')">
+        <div class="skill-title">Testing</div>
+        <div class="skill-items">
+          <span>Pest PHP</span><span>PHPUnit</span><span>Feature tests</span><span>Unit tests</span>
+        </div>
+      </div>
+      <div class="skill-card" onclick="window.sendPrompt('How to handle background jobs and queues in Laravel?')">
+        <div class="skill-title">Queues & Jobs</div>
+        <div class="skill-items">
+          <span>Redis</span><span>Horizon</span><span>Background tasks</span><span>Job Batching</span>
+        </div>
+      </div>
+      <div class="skill-card" onclick="window.sendPrompt('Advanced Laravel architecture patterns: SOLID, Service Classes')">
+        <div class="skill-title">Architecture</div>
+        <div class="skill-items">
+          <span>SOLID</span><span>Design Patterns</span><span>Service Classes</span><span>Repositories</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Phase 7 -->
+  <div class="phase p1" id="php7">
+    <div class="phase-header" onclick="window.togglePhase('php7')">
+      <span class="phase-badge">Phase 7</span>
+      <span class="phase-title">Infrastructure & Deployment</span>
+      <span class="phase-meta">1 Month</span>
+      <i class="ti ti-chevron-down chevron" aria-hidden="true"></i>
+    </div>
+    <div class="phase-body">
+      <div class="skill-card" onclick="window.sendPrompt('How to deploy Laravel apps with Docker and Nginx?')">
+        <div class="skill-title">Containerization</div>
+        <div class="skill-items">
+          <span>Docker</span><span>Docker Compose</span><span>Sail</span><span>Nginx/Apache</span>
+        </div>
+      </div>
+      <div class="skill-card" onclick="window.sendPrompt('Laravel CI/CD with GitHub Actions')">
+        <div class="skill-title">CI/CD</div>
+        <div class="skill-items">
+          <span>GitHub Actions</span><span>Automated testing</span><span>Forge</span><span>Vapor</span>
+        </div>
+      </div>
+    </div>
+    <div class="tip">🚀 Master these and you'll be a high-level Laravel Full-Stack Developer!</div>
+  </div>
+</div>
+`,
+    steps: [],
+  },
 ];
 
 const blogs = [
