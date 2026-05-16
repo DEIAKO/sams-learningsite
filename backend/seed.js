@@ -303,6 +303,275 @@ const roadmaps = [
       { order: 5, title: 'Security & Governance', description: 'OAuth2/OIDC, mTLS, API Gateways, and monitoring/logging.' },
     ],
   },
+  {
+    title: 'React Native Developer Roadmap',
+    description: 'Master mobile app development with React Native, from cross-platform basics to advanced native features.',
+    topic: 'React Native',
+    icon: '📱',
+    color: '#61dafb',
+    estimatedTime: '6-12 months',
+    featured: true,
+    htmlContent: `
+<style>
+  .rn-wrap { padding: 1rem 0; font-family: 'Inter', sans-serif; }
+  .phase { border: 0.5px solid var(--border); border-radius: var(--radius-lg); margin-bottom: 1.5rem; overflow: hidden; }
+  .phase-header { padding: 14px 20px; display: flex; align-items: center; gap: 12px; cursor: pointer; user-select: none; }
+  .phase-header:hover { opacity: 0.85; }
+  .phase-badge { font-size: 11px; font-weight: 500; padding: 2px 10px; border-radius: 20px; white-space: nowrap; }
+  .phase-title { font-size: 15px; font-weight: 500; color: var(--text-primary); flex: 1; }
+  .phase-meta { font-size: 12px; color: var(--text-secondary); }
+  .phase-body { border-top: 0.5px solid var(--border); padding: 18px 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .skill-card { border: 0.5px solid var(--border); border-radius: var(--radius-md); padding: 12px 14px; cursor: pointer; transition: border-color 0.15s; background: var(--bg-card); }
+  .skill-card:hover { border-color: var(--accent); }
+  .skill-title { font-size: 13px; font-weight: 500; color: var(--text-primary); margin-bottom: 4px; }
+  .skill-items { font-size: 12px; color: var(--text-secondary); line-height: 1.7; }
+  .skill-items span { display: inline-block; background: var(--bg-secondary); border-radius: 4px; padding: 1px 7px; margin: 1px 2px 1px 0; font-size: 11px; }
+  .chevron { transition: transform 0.2s; color: var(--text-secondary); font-size: 14px; }
+  .phase.collapsed .phase-body { display: none; }
+  .phase.collapsed .chevron { transform: rotate(-90deg); }
+  .tip { font-size: 12px; color: var(--text-secondary); padding: 10px 20px 14px; border-top: 0.5px solid var(--border); }
+  /* Phase colors */
+  .p1 .phase-header { background: #E6F1FB; } .dark .p1 .phase-header { background: #0C447C22; }
+  .p1 .phase-badge { background: #B5D4F4; color: #0C447C; }
+  .p2 .phase-header { background: #EAF3DE; } .p2 .phase-badge { background: #C0DD97; color: #27500A; }
+  .p3 .phase-header { background: #EEEDFE; } .p3 .phase-badge { background: #CECBF6; color: #3C3489; }
+  .p4 .phase-header { background: #FAEEDA; } .p4 .phase-badge { background: #FAC775; color: #633806; }
+  .p5 .phase-header { background: #FAECE7; } .p5 .phase-badge { background: #F5C4B3; color: #712B13; }
+  @media (prefers-color-scheme: dark) {
+    .p1 .phase-header { background: #042C5322; }
+    .p1 .phase-badge { background: #0C447C; color: #B5D4F4; }
+    .p2 .phase-header { background: #173404; }
+    .p2 .phase-badge { background: #27500A; color: #C0DD97; }
+    .p3 .phase-header { background: #26215C22; }
+    .p3 .phase-badge { background: #3C3489; color: #CECBF6; }
+    .p4 .phase-header { background: #41240222; }
+    .p4 .phase-badge { background: #633806; color: #FAC775; }
+    .p5 .phase-header { background: #4A1B0C22; }
+    .p5 .phase-badge { background: #712B13; color: #F5C4B3; }
+  }
+  @media (max-width: 500px) { .phase-body { grid-template-columns: 1fr; } }
+</style>
+<div class="rn-wrap">
+
+  <div class="phase p1" id="ph1">
+    <div class="phase-header" onclick="window.togglePhase('ph1')">
+      <span class="phase-badge">Phase 1</span>
+      <span class="phase-title">Prerequisites & foundations</span>
+      <span class="phase-meta">1–2 months</span>
+      <i class="ti ti-chevron-down chevron" aria-hidden="true"></i>
+    </div>
+    <div class="phase-body">
+      <div class="skill-card" onclick="window.sendPrompt('Explain JavaScript fundamentals I need before React Native')">
+        <div class="skill-title">JavaScript essentials</div>
+        <div class="skill-items">
+          <span>ES6+</span><span>Arrow functions</span><span>Promises</span><span>Async/await</span><span>Destructuring</span><span>Spread/rest</span><span>Modules (import/export)</span><span>Array methods</span>
+        </div>
+      </div>
+      <div class="skill-card" onclick="window.sendPrompt('What TypeScript basics do I need for React Native?')">
+        <div class="skill-title">TypeScript basics</div>
+        <div class="skill-items">
+          <span>Types & interfaces</span><span>Generics</span><span>Enums</span><span>Type inference</span><span>Optional chaining</span><span>Utility types</span>
+        </div>
+      </div>
+      <div class="skill-card" onclick="window.sendPrompt('What React core concepts do I need for React Native?')">
+        <div class="skill-title">React core concepts</div>
+        <div class="skill-items">
+          <span>JSX</span><span>Components</span><span>Props & state</span><span>Hooks (useState, useEffect, useRef)</span><span>Context API</span><span>Component lifecycle</span>
+        </div>
+      </div>
+      <div class="skill-card" onclick="window.sendPrompt('What should I know about Node.js and npm before starting React Native?')">
+        <div class="skill-title">Node.js & tooling</div>
+        <div class="skill-items">
+          <span>npm / yarn / pnpm</span><span>package.json</span><span>Node basics</span><span>Git & GitHub</span><span>VS Code setup</span>
+        </div>
+      </div>
+    </div>
+    <div class="tip">💡 If you already know React for web, you can skip most of this and jump to Phase 2.</div>
+  </div>
+
+  <div class="phase p2" id="ph2">
+    <div class="phase-header" onclick="window.togglePhase('ph2')">
+      <span class="phase-badge">Phase 2</span>
+      <span class="phase-title">React Native core</span>
+      <span class="phase-meta">2–3 months</span>
+      <i class="ti ti-chevron-down chevron" aria-hidden="true"></i>
+    </div>
+    <div class="phase-body">
+      <div class="skill-card" onclick="window.sendPrompt('How do I set up a React Native project with Expo?')">
+        <div class="skill-title">Environment setup</div>
+        <div class="skill-items">
+          <span>Expo CLI</span><span>React Native CLI</span><span>Android Studio</span><span>Xcode (Mac)</span><span>Emulators/simulators</span>
+        </div>
+      </div>
+      <div class="skill-card" onclick="window.sendPrompt('What are the core React Native components I need to learn?')">
+        <div class="skill-title">Core components</div>
+        <div class="skill-items">
+          <span>View & Text</span><span>Image</span><span>ScrollView</span><span>FlatList</span><span>TextInput</span><span>TouchableOpacity</span><span>Button</span><span>Modal</span>
+        </div>
+      </div>
+      <div class="skill-card" onclick="window.sendPrompt('How does Flexbox layout work in React Native?')">
+        <div class="skill-title">Styling & layout</div>
+        <div class="skill-items">
+          <span>StyleSheet API</span><span>Flexbox</span><span>Dimensions API</span><span>Platform-specific styles</span><span>Responsive design</span>
+        </div>
+      </div>
+      <div class="skill-card" onclick="window.sendPrompt('How does navigation work in React Native?')">
+        <div class="skill-title">Navigation</div>
+        <div class="skill-items">
+          <span>React Navigation</span><span>Stack navigator</span><span>Tab navigator</span><span>Drawer navigator</span><span>Deep linking</span><span>Expo Router</span>
+        </div>
+      </div>
+      <div class="skill-card" onclick="window.sendPrompt('How do I handle API calls and data fetching in React Native?')">
+        <div class="skill-title">Networking & APIs</div>
+        <div class="skill-items">
+          <span>Fetch API</span><span>Axios</span><span>REST APIs</span><span>Error handling</span><span>Loading states</span>
+        </div>
+      </div>
+      <div class="skill-card" onclick="window.sendPrompt('How do I store data locally in React Native?')">
+        <div class="skill-title">Local storage</div>
+        <div class="skill-items">
+          <span>AsyncStorage</span><span>MMKV</span><span>SQLite</span><span>Secure storage</span>
+        </div>
+      </div>
+    </div>
+    <div class="tip">🎯 Build a simple app (to-do list, weather app) after this phase to solidify the basics.</div>
+  </div>
+
+  <div class="phase p3" id="ph3">
+    <div class="phase-header" onclick="window.togglePhase('ph3')">
+      <span class="phase-badge">Phase 3</span>
+      <span class="phase-title">State management & architecture</span>
+      <span class="phase-meta">1–2 months</span>
+      <i class="ti ti-chevron-down chevron" aria-hidden="true"></i>
+    </div>
+    <div class="phase-body">
+      <div class="skill-card" onclick="window.sendPrompt('What are the best state management solutions for React Native?')">
+        <div class="skill-title">State management</div>
+        <div class="skill-items">
+          <span>Redux Toolkit</span><span>Zustand</span><span>Jotai</span><span>Context + useReducer</span><span>React Query / TanStack</span>
+        </div>
+      </div>
+      <div class="skill-card" onclick="window.sendPrompt('How do I use React Query for server state in React Native?')">
+        <div class="skill-title">Server state & caching</div>
+        <div class="skill-items">
+          <span>TanStack Query</span><span>SWR</span><span>Cache invalidation</span><span>Optimistic updates</span><span>Pagination & infinite scroll</span>
+        </div>
+      </div>
+      <div class="skill-card" onclick="window.sendPrompt('What are the best React Native UI component libraries?')">
+        <div class="skill-title">UI libraries</div>
+        <div class="skill-items">
+          <span>NativeWind (Tailwind)</span><span>React Native Paper</span><span>Gluestack UI</span><span>Tamagui</span><span>Shopify Restyle</span>
+        </div>
+      </div>
+      <div class="skill-card" onclick="window.sendPrompt('What are good React Native app architecture patterns?')">
+        <div class="skill-title">App architecture</div>
+        <div class="skill-items">
+          <span>Feature-based structure</span><span>Clean architecture</span><span>Custom hooks</span><span>Service layers</span><span>Repository pattern</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="phase p4" id="ph4">
+    <div class="phase-header" onclick="window.togglePhase('ph4')">
+      <span class="phase-badge">Phase 4</span>
+      <span class="phase-title">Native features & device APIs</span>
+      <span class="phase-meta">1–2 months</span>
+      <i class="ti ti-chevron-down chevron" aria-hidden="true"></i>
+    </div>
+    <div class="phase-body">
+      <div class="skill-card" onclick="window.sendPrompt('How do I use the camera and media picker in React Native?')">
+        <div class="skill-title">Camera & media</div>
+        <div class="skill-items">
+          <span>expo-camera</span><span>expo-image-picker</span><span>expo-media-library</span><span>react-native-vision-camera</span>
+        </div>
+      </div>
+      <div class="skill-card" onclick="window.sendPrompt('How do push notifications work in React Native?')">
+        <div class="skill-title">Push notifications</div>
+        <div class="skill-items">
+          <span>Expo Notifications</span><span>Firebase FCM</span><span>Local notifications</span><span>Background handling</span>
+        </div>
+      </div>
+      <div class="skill-card" onclick="window.sendPrompt('How do I add animations in React Native?')">
+        <div class="skill-title">Animations</div>
+        <div class="skill-items">
+          <span>Animated API</span><span>Reanimated 3</span><span>Lottie</span><span>Gesture Handler</span><span>Moti</span>
+        </div>
+      </div>
+      <div class="skill-card" onclick="window.sendPrompt('How do I use geolocation and maps in React Native?')">
+        <div class="skill-title">Maps & location</div>
+        <div class="skill-items">
+          <span>expo-location</span><span>react-native-maps</span><span>Google Maps API</span><span>Mapbox</span>
+        </div>
+      </div>
+      <div class="skill-card" onclick="window.sendPrompt('How do I handle authentication in React Native?')">
+        <div class="skill-title">Auth & security</div>
+        <div class="skill-items">
+          <span>Firebase Auth</span><span>Supabase Auth</span><span>expo-auth-session</span><span>Biometrics</span><span>OAuth / social login</span>
+        </div>
+      </div>
+      <div class="skill-card" onclick="window.sendPrompt('How do I use Bluetooth and other device sensors in React Native?')">
+        <div class="skill-title">Device APIs</div>
+        <div class="skill-items">
+          <span>Accelerometer</span><span>Bluetooth (BLE)</span><span>Haptics</span><span>expo-sensors</span><span>Barcode/QR scanner</span>
+        </div>
+      </div>
+    </div>
+    <div class="tip">🎯 Build a full-featured app (social, e-commerce, or GPS tracker) using Phase 3 + 4 skills.</div>
+  </div>
+
+  <div class="phase p5" id="ph5">
+    <div class="phase-header" onclick="window.togglePhase('ph5')">
+      <span class="phase-badge">Phase 5</span>
+      <span class="phase-title">Advanced & production-ready</span>
+      <span class="phase-meta">2–3 months</span>
+      <i class="ti ti-chevron-down chevron" aria-hidden="true"></i>
+    </div>
+    <div class="phase-body">
+      <div class="skill-card" onclick="window.sendPrompt('How do I write tests in React Native?')">
+        <div class="skill-title">Testing</div>
+        <div class="skill-items">
+          <span>Jest</span><span>React Native Testing Library</span><span>Detox (E2E)</span><span>Maestro</span><span>Mock services</span>
+        </div>
+      </div>
+      <div class="skill-card" onclick="window.sendPrompt('How do I optimize performance in a React Native app?')">
+        <div class="skill-title">Performance</div>
+        <div class="skill-items">
+          <span>memo & useMemo</span><span>FlatList optimization</span><span>Hermes engine</span><span>Bundle splitting</span><span>Flipper profiling</span><span>New Architecture (JSI)</span>
+        </div>
+      </div>
+      <div class="skill-card" onclick="window.sendPrompt('How do I write native modules in React Native?')">
+        <div class="skill-title">Native modules</div>
+        <div class="skill-items">
+          <span>Native Modules (Java/ObjC)</span><span>Turbo Modules</span><span>Fabric (new renderer)</span><span>Kotlin / Swift bridges</span>
+        </div>
+      </div>
+      <div class="skill-card" onclick="window.sendPrompt('How do I set up CI/CD for a React Native app?')">
+        <div class="skill-title">CI/CD & deployment</div>
+        <div class="skill-items">
+          <span>EAS Build</span><span>Fastlane</span><span>GitHub Actions</span><span>CodePush / OTA updates</span><span>App Store & Play Store submission</span>
+        </div>
+      </div>
+      <div class="skill-card" onclick="window.sendPrompt('How do I monitor errors and analytics in React Native?')">
+        <div class="skill-title">Monitoring & analytics</div>
+        <div class="skill-items">
+          <span>Sentry</span><span>Firebase Analytics</span><span>Crashlytics</span><span>LogRocket</span>
+        </div>
+      </div>
+      <div class="skill-card" onclick="window.sendPrompt('How do I handle in-app purchases in React Native?')">
+        <div class="skill-title">Monetization</div>
+        <div class="skill-items">
+          <span>In-app purchases</span><span>RevenueCat</span><span>Stripe</span><span>PayMongo (PH)</span><span>Subscription models</span>
+        </div>
+      </div>
+    </div>
+    <div class="tip">🚀 At this stage, you're hireable. Publish apps to the stores and build your portfolio.</div>
+  </div>
+
+</div>
+`,
+    steps: [],
+  },
 ];
 
 const blogs = [

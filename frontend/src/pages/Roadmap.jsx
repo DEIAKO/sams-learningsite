@@ -15,6 +15,20 @@ export default function Roadmap() {
       })
       .catch(() => {})
       .finally(() => setLoading(false));
+
+    // Global handlers for custom HTML roadmaps
+    window.togglePhase = (id) => {
+      document.getElementById(id)?.classList.toggle('collapsed');
+    };
+    window.sendPrompt = (prompt) => {
+      console.log('AI Prompt Triggered:', prompt);
+      alert(`AI Learning Assistant would explain: "${prompt}"\n(AI Chat integration coming soon!)`);
+    };
+
+    return () => {
+      delete window.togglePhase;
+      delete window.sendPrompt;
+    };
   }, []);
 
   if (loading) return <div className="loading"><div className="spinner" /></div>;
@@ -77,30 +91,37 @@ export default function Roadmap() {
               </div>
             </div>
 
-            {/* Steps */}
-            <div className="rm-steps">
-              {selected.steps?.map((step, idx) => (
-                <div key={step._id || idx} className="rm-step">
-                  <div className="rm-step-marker" style={{ '--rm-color': selected.color }}>
-                    <span className="rm-step-num">{step.order}</span>
-                    {idx < selected.steps.length - 1 && <div className="rm-connector" />}
+            {/* Content Rendering */}
+            {selected.htmlContent ? (
+              <div 
+                className="rm-custom-content"
+                dangerouslySetInnerHTML={{ __html: selected.htmlContent }}
+              />
+            ) : (
+              <div className="rm-steps">
+                {selected.steps?.map((step, idx) => (
+                  <div key={step._id || idx} className="rm-step">
+                    <div className="rm-step-marker" style={{ '--rm-color': selected.color }}>
+                      <span className="rm-step-num">{step.order}</span>
+                      {idx < selected.steps.length - 1 && <div className="rm-connector" />}
+                    </div>
+                    <div className="rm-step-content">
+                      <h3>{step.title}</h3>
+                      {step.description && <p>{step.description}</p>}
+                      {step.resources?.length > 0 && (
+                        <div className="rm-resources">
+                          {step.resources.map((res, i) => (
+                            <a key={i} href={res.url} target="_blank" rel="noreferrer" className="rm-resource-link">
+                              🔗 {res.label}
+                            </a>
+                          ))}
+                        </div>
+                      )}
+                    </div>
                   </div>
-                  <div className="rm-step-content">
-                    <h3>{step.title}</h3>
-                    {step.description && <p>{step.description}</p>}
-                    {step.resources?.length > 0 && (
-                      <div className="rm-resources">
-                        {step.resources.map((res, i) => (
-                          <a key={i} href={res.url} target="_blank" rel="noreferrer" className="rm-resource-link">
-                            🔗 {res.label}
-                          </a>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
+            )}
           </div>
         )}
       </div>

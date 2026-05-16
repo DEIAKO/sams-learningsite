@@ -17,6 +17,7 @@ const roadmapSchema = new mongoose.Schema(
     color: { type: String, default: '#6c63ff' },
     estimatedTime: { type: String }, // e.g. "3 months"
     steps: [stepSchema],
+    htmlContent: { type: String },
     featured: { type: Boolean, default: false },
   },
   { timestamps: true }
