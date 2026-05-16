@@ -19,6 +19,7 @@ const topics = [
   { name: 'Next Js', icon: '⚫', color: '#000000' },
   { name: 'Java', icon: '☕', color: '#f8981d' },
   { name: 'React Native', icon: '📱', color: '#61dafb' },
+  { name: 'WordPress', icon: '🌐', color: '#21759b' },
   { name: 'others', icon: '📁', color: '#808080' },
 ];
 

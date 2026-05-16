@@ -572,6 +572,150 @@ const roadmaps = [
 `,
     steps: [],
   },
+  {
+    title: 'WordPress Developer Roadmap',
+    description: 'A comprehensive guide for aspiring WordPress developers, from web foundations to advanced theme and plugin development.',
+    topic: 'WordPress',
+    icon: '🌐',
+    color: '#21759b',
+    estimatedTime: '6-9 months',
+    featured: true,
+    htmlContent: `
+<style>
+  .wp-wrap { padding: 1rem 0; font-family: 'Inter', sans-serif; }
+  .phase { border: 0.5px solid var(--border); border-radius: var(--radius-lg); margin-bottom: 1.5rem; overflow: hidden; }
+  .phase-header { padding: 14px 20px; display: flex; align-items: center; gap: 12px; cursor: pointer; user-select: none; }
+  .phase-header:hover { opacity: 0.85; }
+  .phase-badge { font-size: 11px; font-weight: 500; padding: 2px 10px; border-radius: 20px; white-space: nowrap; }
+  .phase-title { font-size: 15px; font-weight: 500; color: var(--text-primary); flex: 1; }
+  .phase-meta { font-size: 12px; color: var(--text-secondary); }
+  .phase-body { border-top: 0.5px solid var(--border); padding: 18px 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .skill-card { border: 0.5px solid var(--border); border-radius: var(--radius-md); padding: 12px 14px; cursor: pointer; transition: border-color 0.15s; background: var(--bg-card); }
+  .skill-card:hover { border-color: var(--accent); }
+  .skill-title { font-size: 13px; font-weight: 500; color: var(--text-primary); margin-bottom: 4px; }
+  .skill-items { font-size: 12px; color: var(--text-secondary); line-height: 1.7; }
+  .skill-items span { display: inline-block; background: var(--bg-secondary); border-radius: 4px; padding: 1px 7px; margin: 1px 2px 1px 0; font-size: 11px; }
+  .chevron { transition: transform 0.2s; color: var(--text-secondary); font-size: 14px; }
+  .phase.collapsed .phase-body { display: none; }
+  .phase.collapsed .chevron { transform: rotate(-90deg); }
+  .tip { font-size: 12px; color: var(--text-secondary); padding: 10px 20px 14px; border-top: 0.5px solid var(--border); }
+  /* Phase colors - WordPress themed */
+  .p1 .phase-header { background: #e7f1f9; } .dark .p1 .phase-header { background: #21759b22; }
+  .p1 .phase-badge { background: #d1e3f2; color: #21759b; }
+  .p2 .phase-header { background: #f0f7ed; } .dark .p2 .phase-header { background: #4ab86622; }
+  .p2 .phase-badge { background: #d9ecd3; color: #4ab866; }
+  .p3 .phase-header { background: #fdf2f2; } .dark .p3 .phase-header { background: #d6363822; }
+  .p3 .phase-badge { background: #f9dcdc; color: #d63638; }
+  @media (max-width: 500px) { .phase-body { grid-template-columns: 1fr; } }
+</style>
+<div class="wp-wrap">
+  <!-- Phase 1 -->
+  <div class="phase p1" id="wp1">
+    <div class="phase-header" onclick="window.togglePhase('wp1')">
+      <span class="phase-badge">Phase 1</span>
+      <span class="phase-title">Beginner: Fundamentals & WordPress Basics</span>
+      <span class="phase-meta">1–2 months</span>
+      <i class="ti ti-chevron-down chevron" aria-hidden="true"></i>
+    </div>
+    <div class="phase-body">
+      <div class="skill-card" onclick="window.sendPrompt('What are the HTML, CSS, and JS fundamentals for WordPress?')">
+        <div class="skill-title">Web Fundamentals</div>
+        <div class="skill-items">
+          <span>HTML5 Structure</span><span>CSS Styling</span><span>Responsive Design</span><span>JavaScript Basics</span><span>DOM Manipulation</span>
+        </div>
+      </div>
+      <div class="skill-card" onclick="window.sendPrompt('Explain the difference between WordPress.org and WordPress.com')">
+        <div class="skill-title">Core Concepts</div>
+        <div class="skill-items">
+          <span>WP.org vs WP.com</span><span>Themes & Plugins</span><span>Dashboard Navigation</span><span>Posts vs Pages</span><span>Media Library</span>
+        </div>
+      </div>
+      <div class="skill-card" onclick="window.sendPrompt('How do I set up a local WordPress environment?')">
+        <div class="skill-title">Setting Up</div>
+        <div class="skill-items">
+          <span>LocalWP / XAMPP</span><span>Live Hosting</span><span>Domain Setup</span><span>Database Config</span><span>FTP / Filezilla</span>
+        </div>
+      </div>
+    </div>
+    <div class="tip">💡 Pro Tip: Start with LocalWP for the easiest local development experience.</div>
+  </div>
+
+  <!-- Phase 2 -->
+  <div class="phase p2" id="wp2">
+    <div class="phase-header" onclick="window.togglePhase('wp2')">
+      <span class="phase-badge">Phase 2</span>
+      <span class="phase-title">Intermediate: Development Essentials</span>
+      <span class="phase-meta">3–4 months</span>
+      <i class="ti ti-chevron-down chevron" aria-hidden="true"></i>
+    </div>
+    <div class="phase-body">
+      <div class="skill-card" onclick="window.sendPrompt('What PHP basics do I need for WordPress?')">
+        <div class="skill-title">PHP for WordPress</div>
+        <div class="skill-items">
+          <span>Variables & Loops</span><span>Functions</span><span>OOP Basics</span><span>WP PHP Functions</span><span>Hooks (Actions/Filters)</span>
+        </div>
+      </div>
+      <div class="skill-card" onclick="window.sendPrompt('Explain the WordPress Template Hierarchy')">
+        <div class="skill-title">Theme Development</div>
+        <div class="skill-items">
+          <span>index.php / style.css</span><span>functions.php</span><span>Child Themes</span><span>Template Hierarchy</span><span>Block Themes (FSE)</span>
+        </div>
+      </div>
+      <div class="skill-card" onclick="window.sendPrompt('How do I create a custom WordPress plugin?')">
+        <div class="skill-title">Plugin Development</div>
+        <div class="skill-items">
+          <span>Plugin Structure</span><span>Custom Post Types</span><span>Custom Taxonomies</span><span>Shortcodes</span><span>Meta Boxes</span><span>Widgets</span>
+        </div>
+      </div>
+      <div class="skill-card" onclick="window.sendPrompt('How does WordPress interact with MySQL?')">
+        <div class="skill-title">Database & MySQL</div>
+        <div class="skill-items">
+          <span>SQL Queries</span><span>WP DB Structure</span><span>$wpdb Class</span><span>Data Sanitization</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Phase 3 -->
+  <div class="phase p3" id="wp3">
+    <div class="phase-header" onclick="window.togglePhase('wp3')">
+      <span class="phase-badge">Phase 3</span>
+      <span class="phase-title">Advanced: Optimization & Modern Practices</span>
+      <span class="phase-meta">2–3 months</span>
+      <i class="ti ti-chevron-down chevron" aria-hidden="true"></i>
+    </div>
+    <div class="phase-body">
+      <div class="skill-card" onclick="window.sendPrompt('How do I use the WordPress REST API?')">
+        <div class="skill-title">REST API</div>
+        <div class="skill-items">
+          <span>API Endpoints</span><span>Custom Endpoints</span><span>Authentication</span><span>Headless WordPress</span>
+        </div>
+      </div>
+      <div class="skill-card" onclick="window.sendPrompt('How do I optimize WordPress performance?')">
+        <div class="skill-title">Performance & Security</div>
+        <div class="skill-items">
+          <span>Caching</span><span>Image Optimization</span><span>Security Hardening</span><span>Debugging (WP_DEBUG)</span><span>CDN Integration</span>
+        </div>
+      </div>
+      <div class="skill-card" onclick="window.sendPrompt('How do I use Git for WordPress development?')">
+        <div class="skill-title">Workflow & Deployment</div>
+        <div class="skill-items">
+          <span>Git / Version Control</span><span>CI/CD</span><span>Staging Sites</span><span>Deployment Strategies</span>
+        </div>
+      </div>
+      <div class="skill-card" onclick="window.sendPrompt('How do I create custom Gutenberg blocks?')">
+        <div class="skill-title">Modern Development</div>
+        <div class="skill-items">
+          <span>Gutenberg Blocks</span><span>React in WP</span><span>Webpack / Vite</span><span>Tailwind in WP</span>
+        </div>
+      </div>
+    </div>
+    <div class="tip">🚀 Master the REST API and Block development to stay relevant in the modern WordPress ecosystem.</div>
+  </div>
+</div>
+`,
+    steps: [],
+  },
 ];
 
 const blogs = [
