@@ -21,6 +21,7 @@ const topics = [
   { name: 'React Native', icon: '📱', color: '#61dafb' },
   { name: 'WordPress', icon: '🌐', color: '#21759b' },
   { name: 'PHP', icon: '🐘', color: '#777bb4' },
+  { name: 'Cloud computing', icon: '☁️', color: '#FF9900' },
   { name: 'others', icon: '📁', color: '#808080' },
 ];
 

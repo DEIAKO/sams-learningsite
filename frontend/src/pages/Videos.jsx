@@ -4,7 +4,7 @@ import { getVideos } from '../api';
 import { VideoCard } from '../components/ContentCard';
 import './Page.css';
 
-const topics = ['All', 'JavaScript', 'React js', 'Next Js', 'Java', 'React Native', 'WordPress', 'PHP', 'others'];
+const topics = ['All', 'JavaScript', 'React js', 'Next Js', 'Java', 'React Native', 'WordPress', 'PHP', 'Cloud computing', 'others'];
 const levels  = ['All', 'Beginner', 'Intermediate', 'Advanced'];
 
 export default function Videos() {

@@ -955,6 +955,184 @@ const roadmaps = [
 `,
     steps: [],
   },
+  {
+    title: 'Enterprise AWS Cloud Computing Roadmap',
+    description: 'An enterprise-grade AWS learning roadmap focusing heavily on infrastructure as code (IaC), event-driven architectures, automated CI/CD pipelines, and deep security controls.',
+    topic: 'Cloud computing',
+    icon: '☁️',
+    color: '#FF9900',
+    estimatedTime: '6-8 months',
+    featured: true,
+    htmlContent: `
+<style>
+  .aws-wrap { padding: 1rem 0; font-family: 'Inter', sans-serif; }
+  .phase { border: 0.5px solid var(--border); border-radius: var(--radius-lg); margin-bottom: 1.5rem; overflow: hidden; }
+  .phase-header { padding: 14px 20px; display: flex; align-items: center; gap: 12px; cursor: pointer; user-select: none; }
+  .phase-header:hover { opacity: 0.85; }
+  .phase-badge { font-size: 11px; font-weight: 500; padding: 2px 10px; border-radius: 20px; white-space: nowrap; }
+  .phase-title { font-size: 15px; font-weight: 500; color: var(--text-primary); flex: 1; }
+  .phase-meta { font-size: 12px; color: var(--text-secondary); }
+  .phase-body { border-top: 0.5px solid var(--border); padding: 18px 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .skill-card { border: 0.5px solid var(--border); border-radius: var(--radius-md); padding: 12px 14px; cursor: pointer; transition: border-color 0.15s; background: var(--bg-card); }
+  .skill-card:hover { border-color: var(--accent); }
+  .skill-title { font-size: 13px; font-weight: 500; color: var(--text-primary); margin-bottom: 4px; }
+  .skill-items { font-size: 12px; color: var(--text-secondary); line-height: 1.7; }
+  .skill-items span { display: inline-block; background: var(--bg-secondary); border-radius: 4px; padding: 1px 7px; margin: 1px 2px 1px 0; font-size: 11px; }
+  .chevron { transition: transform 0.2s; color: var(--text-secondary); font-size: 14px; }
+  .phase.collapsed .phase-body { display: none; }
+  .phase.collapsed .chevron { transform: rotate(-90deg); }
+  .tip { font-size: 12px; color: var(--text-secondary); padding: 10px 20px 14px; border-top: 0.5px solid var(--border); }
+  /* Phase colors - AWS themed */
+  .p1 .phase-header { background: #FFF3E0; } .dark .p1 .phase-header { background: #FF990022; }
+  .p1 .phase-badge { background: #FFE0B2; color: #E65100; }
+  .p2 .phase-header { background: #E3F2FD; } .dark .p2 .phase-header { background: #2196F322; }
+  .p2 .phase-badge { background: #BBDEFB; color: #0D47A1; }
+  .p3 .phase-header { background: #E8F5E9; } .dark .p3 .phase-header { background: #4CAF5022; }
+  .p3 .phase-badge { background: #C8E6C9; color: #1B5E20; }
+  .p4 .phase-header { background: #F3E5F5; } .dark .p4 .phase-header { background: #9C27B022; }
+  .p4 .phase-badge { background: #E1BEE7; color: #4A148C; }
+  @media (max-width: 500px) { .phase-body { grid-template-columns: 1fr; } }
+</style>
+<div class="aws-wrap">
+  <!-- Tier 1 -->
+  <div class="phase p1" id="aws1">
+    <div class="phase-header" onclick="window.togglePhase('aws1')">
+      <span class="phase-badge">Tier 1</span>
+      <span class="phase-title">Cloud Fundamentals & Core Infrastructure</span>
+      <span class="phase-meta">Month 1-2</span>
+      <i class="ti ti-chevron-down chevron" aria-hidden="true"></i>
+    </div>
+    <div class="phase-body">
+      <div class="skill-card" onclick="window.sendPrompt('Explain AWS VPC, Subnets, Internet Gateways, NAT Gateways, Security Groups, and NACLs')">
+        <div class="skill-title">Networking</div>
+        <div class="skill-items">
+          <span>VPC</span><span>Subnets (Public/Private)</span><span>IGW & NAT</span><span>Security Groups</span><span>NACLs</span>
+        </div>
+      </div>
+      <div class="skill-card" onclick="window.sendPrompt('Explain AWS EC2, Lambda, and Elastic Load Balancing (ALB/NLB)')">
+        <div class="skill-title">Compute</div>
+        <div class="skill-items">
+          <span>EC2</span><span>Lambda Limits/Cold Starts</span><span>ALB/NLB</span>
+        </div>
+      </div>
+      <div class="skill-card" onclick="window.sendPrompt('Explain AWS S3 and CloudFront caching strategies')">
+        <div class="skill-title">Storage & CDN</div>
+        <div class="skill-items">
+          <span>S3 Policies & Lifecycle</span><span>CloudFront (CDN)</span><span>Edge Locations</span>
+        </div>
+      </div>
+      <div class="skill-card" onclick="window.sendPrompt('Explain AWS IAM, Users, Roles, Policies, and Principle of Least Privilege')">
+        <div class="skill-title">Identity & Access Control</div>
+        <div class="skill-items">
+          <span>IAM Users & Groups</span><span>Roles & Policies</span><span>Least Privilege</span>
+        </div>
+      </div>
+    </div>
+    <div class="tip">🚀 Hands-On: Deploy a highly available web server with ALB in public subnets routing to EC2 in private subnets.</div>
+  </div>
+
+  <!-- Tier 2 -->
+  <div class="phase p2" id="aws2">
+    <div class="phase-header" onclick="window.togglePhase('aws2')">
+      <span class="phase-badge">Tier 2</span>
+      <span class="phase-title">The Modern Developer & Serverless Ecosystem</span>
+      <span class="phase-meta">Month 3-4</span>
+      <i class="ti ti-chevron-down chevron" aria-hidden="true"></i>
+    </div>
+    <div class="phase-body">
+      <div class="skill-card" onclick="window.sendPrompt('Deep dive into AWS Lambda and AWS Step Functions for serverless workflows')">
+        <div class="skill-title">Serverless Compute & Workflows</div>
+        <div class="skill-items">
+          <span>AWS Lambda</span><span>AWS Step Functions</span><span>Asynchronous Workflows</span>
+        </div>
+      </div>
+      <div class="skill-card" onclick="window.sendPrompt('Explain Amazon DynamoDB single-table design and Aurora Serverless')">
+        <div class="skill-title">Databases</div>
+        <div class="skill-items">
+          <span>DynamoDB (Single-table)</span><span>Primary/Sort Keys</span><span>GSIs</span><span>Aurora Serverless</span>
+        </div>
+      </div>
+      <div class="skill-card" onclick="window.sendPrompt('Explain AWS API Gateway and Amazon Cognito for Auth')">
+        <div class="skill-title">API Management & Auth</div>
+        <div class="skill-items">
+          <span>API Gateway (REST/HTTP)</span><span>Custom Authorizers</span><span>Amazon Cognito</span><span>OAuth2</span>
+        </div>
+      </div>
+      <div class="skill-card" onclick="window.sendPrompt('Explain AWS SQS, SNS, and EventBridge for event-driven architecture')">
+        <div class="skill-title">Application Integration</div>
+        <div class="skill-items">
+          <span>SQS (Queues)</span><span>SNS (Pub/Sub)</span><span>EventBridge</span>
+        </div>
+      </div>
+    </div>
+    <div class="tip">🚀 Hands-On: Build a Serverless Mobile Backend API using API Gateway, Cognito, Lambda, DynamoDB, and EventBridge.</div>
+  </div>
+
+  <!-- Tier 3 -->
+  <div class="phase p3" id="aws3">
+    <div class="phase-header" onclick="window.togglePhase('aws3')">
+      <span class="phase-badge">Tier 3</span>
+      <span class="phase-title">Containers, DevSecOps & IaC</span>
+      <span class="phase-meta">Month 5-6</span>
+      <i class="ti ti-chevron-down chevron" aria-hidden="true"></i>
+    </div>
+    <div class="phase-body">
+      <div class="skill-card" onclick="window.sendPrompt('Explain Infrastructure as Code using AWS CloudFormation and AWS CDK')">
+        <div class="skill-title">Infrastructure as Code (IaC)</div>
+        <div class="skill-items">
+          <span>AWS CloudFormation</span><span>AWS CDK (TypeScript/Python)</span>
+        </div>
+      </div>
+      <div class="skill-card" onclick="window.sendPrompt('Explain AWS ECS, Fargate, and EKS for containerization')">
+        <div class="skill-title">Containerization</div>
+        <div class="skill-items">
+          <span>Amazon ECS</span><span>AWS Fargate</span><span>Amazon EKS</span>
+        </div>
+      </div>
+      <div class="skill-card" onclick="window.sendPrompt('Explain AWS CodePipeline, CodeBuild, CodeDeploy and GitHub Actions integration')">
+        <div class="skill-title">CI/CD Pipelines</div>
+        <div class="skill-items">
+          <span>AWS CodePipeline</span><span>CodeBuild & CodeDeploy</span><span>GitHub Actions</span>
+        </div>
+      </div>
+      <div class="skill-card" onclick="window.sendPrompt('Explain AWS CloudWatch, X-Ray, and Secrets Manager')">
+        <div class="skill-title">Observability & Security</div>
+        <div class="skill-items">
+          <span>CloudWatch (Logs/Metrics)</span><span>AWS X-Ray</span><span>AWS Secrets Manager</span>
+        </div>
+      </div>
+    </div>
+    <div class="tip">🚀 Hands-On: Zero-Console CI/CD Pipeline. Provision Node/Go on Fargate with CDK and GitHub Actions.</div>
+  </div>
+
+  <!-- Tier 4 -->
+  <div class="phase p4" id="aws4">
+    <div class="phase-header" onclick="window.togglePhase('aws4')">
+      <span class="phase-badge">Tier 4</span>
+      <span class="phase-title">Advanced Specializations (Data, AI & Security)</span>
+      <span class="phase-meta">Ongoing</span>
+      <i class="ti ti-chevron-down chevron" aria-hidden="true"></i>
+    </div>
+    <div class="phase-body">
+      <div class="skill-card" onclick="window.sendPrompt('Explain AWS Data Analytics & AI services: SageMaker, Bedrock, Glue, Athena, EMR')">
+        <div class="skill-title">Data Analytics & AI</div>
+        <div class="skill-items">
+          <span>Amazon SageMaker</span><span>AWS Bedrock</span><span>AWS Glue</span><span>Amazon Athena</span><span>Amazon EMR</span>
+        </div>
+      </div>
+      <div class="skill-card" onclick="window.sendPrompt('Explain AWS Advanced Enterprise Security: Organizations, Control Tower, WAF, KMS')">
+        <div class="skill-title">Advanced Enterprise Security</div>
+        <div class="skill-items">
+          <span>AWS Organizations</span><span>AWS Control Tower</span><span>AWS WAF</span><span>AWS KMS</span>
+        </div>
+      </div>
+    </div>
+    <div class="tip">💡 Tip: Avoid the "Console Trap" - force yourself to use AWS CLI or CDK. Always monitor pricing!</div>
+  </div>
+</div>
+`,
+    steps: [],
+  },
 ];
 
 const blogs = [
