@@ -115,15 +115,96 @@
 /* ── Topics ────────────────────────────────────── */
 .topics-section { background: var(--bg-secondary); }
 
+.topics-scroll-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+/* Fade Masks */
+.topics-scroll-wrapper::before,
+.topics-scroll-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 60px;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.topics-scroll-wrapper::before {
+  left: 0;
+  background: linear-gradient(to right, var(--bg-secondary) 10%, transparent);
+}
+
+.topics-scroll-wrapper::after {
+  right: 0;
+  background: linear-gradient(to left, var(--bg-secondary) 10%, transparent);
+}
+
+.topics-scroll-wrapper.has-left-fade::before { opacity: 1; }
+.topics-scroll-wrapper.has-right-fade::after { opacity: 1; }
+
+/* Scroll Buttons */
+.scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(17, 17, 20, 0.7);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  transition: var(--transition);
+}
+
+.scroll-btn:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.scroll-btn-left { left: -20px; }
+.scroll-btn-right { right: -20px; }
+
+@media (max-width: 768px) {
+  .scroll-btn { display: none; }
+  .topics-scroll-wrapper::before,
+  .topics-scroll-wrapper::after { width: 40px; }
+}
+
 .topics-grid {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-wrap: nowrap;
+  overflow-x: auto;
   gap: 20px;
+  padding: 10px 0;
+  scroll-behavior: smooth;
+  scrollbar-width: none; /* Firefox */
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
+}
+
+.topics-grid::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
 }
 
 .topic-card {
-  flex: 0 1 auto;
+  flex: 0 0 auto; /* Prevent shrinking */
   min-width: 180px;
   display: flex;
   flex-direction: row;

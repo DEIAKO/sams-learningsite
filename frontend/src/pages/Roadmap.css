@@ -2,12 +2,21 @@
 .roadmap-selector {
   display: flex;
   gap: 12px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   margin-bottom: 48px;
-  justify-content: center;
+  justify-content: flex-start; /* Change to flex-start for scrolling */
+  overflow-x: auto;
+  padding-bottom: 12px;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.roadmap-selector::-webkit-scrollbar {
+  display: none;
 }
 
 .rm-select-btn {
+  flex: 0 0 auto;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -37,16 +46,25 @@
 
 .rm-sub-selector {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start; /* Change to flex-start for scrolling */
   gap: 8px;
   margin-bottom: 32px;
   padding: 8px;
   background: var(--bg-secondary);
   border-radius: var(--radius-lg);
   border: 1px solid var(--border);
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.rm-sub-selector::-webkit-scrollbar {
+  display: none;
 }
 
 .rm-sub-btn {
+  flex: 0 0 auto;
   padding: 8px 20px;
   border-radius: var(--radius-md);
   background: transparent;

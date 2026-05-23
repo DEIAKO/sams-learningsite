@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { getFeaturedVideos, getFeaturedBooks, getFeaturedBlogs, getRoadmaps } from '../api';
 import { VideoCard, BookCard, BlogCard } from '../components/ContentCard';
@@ -31,12 +31,52 @@ export default function Home() {
   const [blogs, setBlogs]     = useState([]);
   const [roadmaps, setRoadmaps] = useState([]);
 
+  const scrollRef = useRef(null);
+  const [showLeftArrow, setShowLeftArrow] = useState(false);
+  const [showRightArrow, setShowRightArrow] = useState(true);
+
+  const handleScroll = () => {
+    if (scrollRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
+      setShowLeftArrow(scrollLeft > 10);
+      setShowRightArrow(scrollLeft < scrollWidth - clientWidth - 10);
+    }
+  };
+
   useEffect(() => {
     getFeaturedVideos().then(r => setVideos(r.data)).catch(() => {});
     getFeaturedBooks().then(r => setBooks(r.data)).catch(() => {});
     getFeaturedBlogs().then(r => setBlogs(r.data)).catch(() => {});
     getRoadmaps().then(r => setRoadmaps(r.data)).catch(() => {});
   }, []);
+
+  useEffect(() => {
+    const current = scrollRef.current;
+    if (current) {
+      current.addEventListener('scroll', handleScroll);
+      // Wait for layout to settle, then verify scrolling bounds
+      handleScroll();
+      const timeoutId = setTimeout(handleScroll, 150);
+      window.addEventListener('resize', handleScroll);
+
+      return () => {
+        current.removeEventListener('scroll', handleScroll);
+        window.removeEventListener('resize', handleScroll);
+        clearTimeout(timeoutId);
+      };
+    }
+  }, [videos, books, blogs, roadmaps]);
+
+  const scroll = (direction) => {
+    if (scrollRef.current) {
+      const { clientWidth } = scrollRef.current;
+      const scrollAmount = clientWidth * 0.75;
+      scrollRef.current.scrollBy({
+        left: direction === 'left' ? -scrollAmount : scrollAmount,
+        behavior: 'smooth'
+      });
+    }
+  };
 
   return (
     <div className="home">
@@ -81,18 +121,40 @@ export default function Home() {
             <h2>Browse by <span className="gradient-text">Topic</span></h2>
             <p>Pick a technology and dive straight into curated content</p>
           </div>
-          <div className="topics-grid">
-            {topics.map(t => (
-              <Link
-                key={t.name}
-                to={`/videos?topic=${t.name}`}
-                className="topic-card"
-                style={{ '--topic-color': t.color }}
+          <div className={`topics-scroll-wrapper ${showLeftArrow ? 'has-left-fade' : ''} ${showRightArrow ? 'has-right-fade' : ''}`}>
+            {showLeftArrow && (
+              <button 
+                className="scroll-btn scroll-btn-left" 
+                onClick={() => scroll('left')} 
+                aria-label="Scroll left"
               >
-                <span className="topic-icon">{t.icon}</span>
-                <span className="topic-name">{t.name}</span>
-              </Link>
-            ))}
+                ‹
+              </button>
+            )}
+            
+            <div className="topics-grid" ref={scrollRef}>
+              {topics.map(t => (
+                <Link
+                  key={t.name}
+                  to={`/videos?topic=${t.name}`}
+                  className="topic-card"
+                  style={{ '--topic-color': t.color }}
+                >
+                  <span className="topic-icon">{t.icon}</span>
+                  <span className="topic-name">{t.name}</span>
+                </Link>
+              ))}
+            </div>
+
+            {showRightArrow && (
+              <button 
+                className="scroll-btn scroll-btn-right" 
+                onClick={() => scroll('right')} 
+                aria-label="Scroll right"
+              >
+                ›
+              </button>
+            )}
           </div>
         </div>
       </section>
